@@ -1,0 +1,24 @@
+body{
+    background-color: #6e7071;
+}
+
+.product-card{
+    height: 100%;
+    transition: 0.2s;
+}
+ .product-card:hover{
+    transform: translateY(-4px);
+ }
+ .product-image{
+    height: 220px;
+    object-fit: contain;
+    padding: 20px;
+ }
+ .description{
+    height: 70px;
+    overflow: hidden;
+ }
+
+.rating{
+    color: yellow;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1 class="text-center">Products Project</h1>
+        <!--? search & filter -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col md-4">
+                        <label for="" class="form-label"> Search </label>
+                        <input type="text" name="" id="searchInput" placeholder="search by name">
+                    </div>
+                    <!--? category  -->
+                    <div class="col-md-3">
+                        <label for="" class="form-label">Category</label>
+                        <select name="" id="categoryFilter" class="form-select">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+                    <!-- //? sort by price -->
+                    <div class="col-md-2">
+                        <label for="" class="form-label">Min Price</label>
+                        <input type="number" id="minPrice" placeholder="0" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="" class="form-label">Max Price</label>
+                        <input type="number" id="maxPrice" placeholder="10000" class="form-control">
+                    </div>
+                    <!--? reset -->
+                    <div class="col-md-1 d-flex align-items-end">
+                        <button class="btn btn-outline-secondary w-100">reset</button>
+                    </div>
+                    <!--? sorting -->
+                    <div class="row md-3">
+                        <div class="col-md-4">
+                            <label for="" class="forms-label"> Sort By </label>
+                            <select name="" id="sortBy" class="form-select">
+                                <option value="default">Default</option>
+                                <option value="name">Name</option>
+                                <option value="price">Price</option>
+                                <option value="rating">Rating</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Order</label>
+                        <select name="" id="sortOrder" class="form-select">
+                            <option value="asc">Ascending</option>
+                            <option value="des">descending</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--? loader -->
+        <div id="loading" class="text-center d-none py-5">
+            <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+
+        <!--? error message -->
+        <div id="errorMessage" class="alert alert-danger d-none">
+
+        </div>
+        <!--! products  -->
+        <div id="productsContainer" class="row g-4"></div>
+    </main>
+
+    <script src="./index.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
