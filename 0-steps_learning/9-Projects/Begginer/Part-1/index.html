@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <h1 class="text-center my-3">Products Project</h1>
+      <!-- ~ Search && Filter -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-body">
+          <div class="row g-3">
+            <!-- ? search -->
+            <div class="col-md-4">
+              <label for="" class="form-label">Search</label>
+              <input
+                type="text"
+                name=""
+                id="searchInput"
+                placeholder="Search by product name..."
+                class="form-control"
+              />
+            </div>
+            <!-- ? category -->
+            <div class="col-md-3">
+              <label for="" class="form-label">Category</label>
+              <select name="" id="categoryFilter" class="form-select">
+                <option value="all">All Categories</option>
+              </select>
+            </div>
+            <!-- ? Price -->
+            <div class="col-md-2">
+              <label for="" class="form-label">Min Price</label>
+              <input
+                type="number"
+                class="form-control"
+                id="minPrice"
+                placeholder="0"
+              />
+            </div>
+            <div class="col-md-2">
+              <label for="" class="form-label">Max Price</label>
+              <input
+                type="number"
+                class="form-control"
+                id="maxPrice"
+                placeholder="10000"
+              />
+            </div>
+            <!-- ? reset -->
+            <div class="col-md-1 d-flex align-items-end">
+              <button
+                class="btn btn-outline-secondary w-100"
+                onclick="resetFilter()"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+          <!-- ~ Sorting -->
+          <div class="row mt-3">
+            <div class="col-md-4">
+              <label for="" class="form-label">Sort By</label>
+              <select name="" id="sortBy" class="form-select">
+                <option value="default">Default</option>
+                <option value="title">Name</option>
+                <option value="price">Price</option>
+                <option value="rating">Rating</option>
+                <option value="stock">Stock</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label for="" class="form-label">Order</label>
+              <select name="" id="sortOrder" class="form-select">
+                <option value="asc">Ascending</option>
+                <option value="des">Descending</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ~ Loader -->
+      <div id="loading" class="text-center d-none py-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <!-- ! error -->
+      <div id="errorMessage" class="alert alert-danger d-none"></div>
+      <!-- ~ Products  -->
+       <button class="btn btn-primary mb-2" onclick="openAddModal()">Add Product</button>
+      <div id="ProductsContainer" class="row g-4"></div>
+      <!-- ~ Product Details -->
+      <div
+        class="modal fade"
+        id="detailsModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="detailsTitle"></h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="detailsBody"></div>
+          </div>
+        </div>
+      </div>
+      <!-- ~ add | edit product -->
+      <div
+        class="modal fade"
+        id="productModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="modelTitle">
+               Add Product
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form action="" id="productForm">
+                <input type="hidden" id="productId">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="" class="form-label">TiTle</label>
+                    <input type="text" class="form-control" id="title" required>
+                  </div>
+                    <div class="col-md-6">
+                    <label for="" class="form-label">Price</label>
+                    <input type="number" id="price" class="form-control" required>
+                  </div>
+                  <!-- <button class="btn btn-dark">Submit</button> -->
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary" onclick="saveProduct()" >
+                Save 
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
